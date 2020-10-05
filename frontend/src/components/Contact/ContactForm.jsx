@@ -106,8 +106,7 @@ export const ContactForm = () => {
             required
           />
         </FormField>
-        <input type="submit" value="Wyślij" />
-        {/* <StyledSubmitBtn type="submit">Send</StyledSubmitBtn> */}
+        <StyledSubmitBtn type="submit">Send</StyledSubmitBtn>
       </Form>
     </FormWrapper>
   );
