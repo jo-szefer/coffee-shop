@@ -10,17 +10,14 @@ const ContactBar = styled.div`
 
 const HeaderContainer = styled.div`
   display: flex;
+  padding: 15px 0 15px 0;
   align-items: center;
   justify-content: space-evenly;
-  height: 10vh;
   overflow: hidden;
   position: sticky;
   z-index: 3;
   top: 0;
   background-color: white;
-  @media screen and (max-width: 500px) {
-    height: auto;
-  }
 `;
 
 const StyledLink = styled(Link)`
@@ -42,18 +39,15 @@ const StyledLink = styled(Link)`
   &:hover {
     background-size: 100% 1px, auto;
   }
-  @media screen and (max-width: 500px) {
-    font-size: 18px;
-    padding-top: 10px;
-  }
   @media screen and (max-width: 800px) {
     font-size: 18px;
-    padding-top: 10px;
   }
 `;
 
 const ShoppingCartButton = styled.button`
-  font-size: 50px;
+  background: none;
+  border: none;
+  color: #71836b;
 `;
 
 export const Navigation = (props) => {
@@ -64,9 +58,9 @@ export const Navigation = (props) => {
         <StyledLink to="/shop">Shop</StyledLink>
         <StyledLink to="/contact">Contact</StyledLink>
         <StyledLink to="/signin">Sign in</StyledLink>
-        {/* <ShoppingCartButton onClick={props.handleOpenCart}>
+        <ShoppingCartButton onClick={props.handleOpenCart}>
           <ShoppingCartIcon />
-        </ShoppingCartButton> */}
+        </ShoppingCartButton>
       </HeaderContainer>
     </>
   );
