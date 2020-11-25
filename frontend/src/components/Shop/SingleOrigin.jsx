@@ -1,6 +1,6 @@
 import React from "react";
 import { ShopItem } from "./ShopItem";
-import "./products-styles.css";
+import { Products } from "./shopStyles";
 
 let productsList = [
   { name: "Guatemala", price: "10$", imgName: "single1.png" },
@@ -13,12 +13,10 @@ let productsList = [
 
 export const SingleOrigin = () => {
   return (
-    <div>
-      <section className="products">
-        {productsList.map((element) => (
-          <ShopItem {...element} />
-        ))}
-      </section>
-    </div>
+    <Products>
+      {productsList.map((element) => (
+        <ShopItem {...element} />
+      ))}
+    </Products>
   );
 };

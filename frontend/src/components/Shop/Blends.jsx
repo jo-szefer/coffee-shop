@@ -1,5 +1,6 @@
 import React from "react";
-import "./products-styles.css";
+
+import { Products } from "./shopStyles";
 import { ShopItem } from "./ShopItem";
 
 let productsInfo = [
@@ -12,12 +13,10 @@ let productsInfo = [
 
 export const Blends = () => {
   return (
-    <div>
-      <section className="products">
-        {productsInfo.map((element) => (
-          <ShopItem {...element} />
-        ))}
-      </section>
-    </div>
+    <Products>
+      {productsInfo.map((element) => (
+        <ShopItem {...element} />
+      ))}
+    </Products>
   );
 };

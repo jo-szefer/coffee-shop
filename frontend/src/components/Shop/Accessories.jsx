@@ -1,6 +1,7 @@
 import React from "react";
+
 import { ShopItem } from "./ShopItem";
-import "./products-styles.css";
+import { Products } from "./shopStyles";
 
 let productsList = [
   { name: "Aeropress", price: "10$", imgName: "aeropress.jpg" },
@@ -13,12 +14,10 @@ let productsList = [
 
 export const Accessories = () => {
   return (
-    <div>
-      <section className="products">
-        {productsList.map((element) => (
-          <ShopItem {...element} />
-        ))}
-      </section>
-    </div>
+    <Products>
+      {productsList.map((element) => (
+        <ShopItem {...element} />
+      ))}
+    </Products>
   );
 };
