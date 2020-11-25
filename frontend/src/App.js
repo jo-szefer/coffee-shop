@@ -12,6 +12,7 @@ import { Accessories } from "./components/Shop/Accessories";
 import { Blends } from "./components/Shop/Blends";
 import { LoginForm } from "./components/SignIn/LoginForm";
 import { ContactForm } from "./components/Contact/ContactForm";
+import { shopCategories } from "./components/Home/shopCategories";
 import { Cart } from "./components/Cart/Cart";
 import { Footer } from "./components/Footer/index";
 import { rootReducer } from "./reducers";
@@ -40,7 +41,7 @@ function App() {
               <Home />
             </Route>
             <Route path="/shop">
-              <Shop />
+              <Shop shopCategories={shopCategories} />
             </Route>
             <Route path="/single-origin">
               <SingleOrigin />
