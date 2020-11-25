@@ -39,7 +39,9 @@ export const Slogan = () => {
   const videoSource = "./images/slogan_vid.mp4";
   return (
     <SloganContainer>
-      <StyledVideo
+      <StyledVideo 
+        disablepictureinpicture
+        controlslist="nodownload"
         autoPlay="autoPlay"
         muted
         loop="loop"
