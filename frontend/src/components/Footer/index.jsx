@@ -80,7 +80,7 @@ export const Footer = () => {
           </StyledPhone>
           <StyledMail>
             <MailIcon />
-            <a href="mailto:jo.szefer@gmail.com">jo.szefer@gmail.com</a>
+            <a href="mailto:smacznej@kawusi.com">smacznej@kawusi.com</a>
           </StyledMail>
         </StandardMediaBox>
         <SocialMediaBox>
