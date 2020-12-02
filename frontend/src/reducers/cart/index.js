@@ -1,51 +1,38 @@
-import { cartActionTypes } from "../../actions/cart";
+import { ADD_TO_CART, CHANGE_QUANTITY } from "../../actions/cart";
+import { REMOVE_FROM_CART } from "../../actions/cart";
 
 const initialState = {
-  productList: [
-    {
-      productId: "item1",
-      src: "images/blend1.jpg",
-      price: 10,
-      name: "Guatemala",
-      quantity: 0,
-    },
-    {
-      productId: "item2",
-      src: "images/blend1.jpg",
-      price: 15.5,
-      name: "Guatemala2",
-      quantity: 0,
-    },
+  items: [
+    { name: "Guatemala", price: 10, imgName: "blend1.jpg", quantity: 1 },
+    { name: "Nicaragua", price: 10, imgName: "blend1.jpg", quantity: 2 },
   ],
 };
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case cartActionTypes.ADD_TO_CART:
+    case ADD_TO_CART:
+      return { ...state, items: [...state.items, action.item] };
+    case REMOVE_FROM_CART:
       return {
         ...state,
-        productList: [...state.productList, action.product],
+        items: state.items.filter((item) => item.name !== action.name),
       };
-    case cartActionTypes.REMOVE_FROM_CART:
-      return {
-        ...state,
-        productList: state.productList.filter(
-          (product) => product.productId !== action.productId
-        ),
-      };
-
-    case cartActionTypes.SET_QUANTITY:
-      const newList = [...state.productList];
-      const index = newList.findIndex(
-        (product) => product.productId === action.productId
-      );
-      newList[index].quantity = action.quantity;
-      return {
-        ...state,
-        productList: newList,
-      };
-
+    case CHANGE_QUANTITY:
+      if (action.quantity >= 1) {
+        return {
+          ...state,
+          items: changeQuantity(action.name, action.quantity, state.items),
+        };
+      } else {
+        return state;
+      }
     default:
       return state;
   }
+};
+
+const changeQuantity = (name, quantity, items) => {
+  const itemIndex = items.findIndex((item) => name === item.name);
+  items[itemIndex].quantity = quantity;
+  return [...items];
 };

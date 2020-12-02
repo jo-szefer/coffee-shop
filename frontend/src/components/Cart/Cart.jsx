@@ -3,13 +3,9 @@ import Modal from "@material-ui/core/Modal";
 import { connect } from "react-redux";
 
 import "./cart-styles.css";
-import { removeFromCart, setQuantity } from "../../actions/cart";
+import { removeFromCart, addToCart, changeQuantity } from "../../actions/cart";
 
 const _Cart = (props) => {
-  const [quantityList, setQuantityList] = React.useState([]);
-
-  const handleQuantityChange = (e) => {};
-
   return (
     <div>
       <Modal
@@ -20,31 +16,40 @@ const _Cart = (props) => {
       >
         <div className="productsInCart">
           <h4>Koszyk</h4>
-          {props.productList.map((productInfo, i) => (
+          {props.items.map((productInfo, i) => (
             <div className="productInCart" key={i}>
-              <img src={productInfo.src} alt="" />
+              <img src={productInfo.imgName} alt="" />
               <span>{productInfo.name}</span>
               <span>{productInfo.price}$</span>
               <span>{productInfo.quantity}</span>
-
-              <input
-                onChange={handleQuantityChange}
-                type="number"
-                min="0"
-              ></input>
-              <button onClick={() => props.setQuantity(productInfo.productId)}>
-                Set Quantity
+              <button
+                onClick={() =>
+                  props.changeQuantity(
+                    productInfo.name,
+                    productInfo.quantity + 1
+                  )
+                }
+              >
+                Add
               </button>
               <button
-                onClick={() => props.removeItemFromCart(productInfo.productId)}
+                onClick={() =>
+                  props.changeQuantity(
+                    productInfo.name,
+                    productInfo.quantity - 1
+                  )
+                }
               >
+                Remove
+              </button>
+              <button onClick={() => props.removeFromCart(productInfo.name)}>
                 Remove from cart
               </button>
             </div>
           ))}
           <div className="cartSummary">
             Total price:{" "}
-            {props.productList.reduce(
+            {props.items.reduce(
               (sum, product) => sum + product.price * product.quantity,
               0
             )}
@@ -55,17 +60,12 @@ const _Cart = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    productList: state.cart.productList,
-  };
-};
-
+const mapStateToProps = (state) => ({ items: state.cart.items });
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeItemFromCart: (productId) => dispatch(removeFromCart(productId)),
-    setQuantity: (productId, quantity) =>
-      dispatch(setQuantity(productId, quantity)),
+    removeFromCart: (name) => dispatch(removeFromCart(name)),
+    changeQuantity: (name, quantity) =>
+      dispatch(changeQuantity(name, quantity)),
   };
 };
 
