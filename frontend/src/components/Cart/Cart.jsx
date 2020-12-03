@@ -18,7 +18,7 @@ const _Cart = (props) => {
           <h4>Koszyk</h4>
           {props.items.map((productInfo, i) => (
             <div className="productInCart" key={i}>
-              <img src={productInfo.imgName} alt="" />
+              <img src={`images/${productInfo.imgName}`} alt="" />
               <span>{productInfo.name}</span>
               <span>{productInfo.price}$</span>
               <span>{productInfo.quantity}</span>
