@@ -23,51 +23,44 @@ const StyledLogin = styled.div`
   position: relative;
   width: 100%;
   max-width: 400px;
+`;
+const StyledHeader = styled.div`
+  margin-bottom: 10px;
   span {
     font-family: "Playfair Display", serif;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin: 20px 0 10px 15px;
     letter-spacing: 1px;
   }
   h2 {
     font-family: "Playfair Display", serif;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    letter-spacing: 1px;
+    margin: 20px 0 10px 15px;
     text-transform: capitalize;
     letter-spacing: 1.5px;
   }
 `;
 
 const StyledLoginBtn = styled.button`
-cursor: pointer;
-  padding: 10px;
-  background-color: skyblue;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
+  cursor: pointer;
   margin: 10px;
   padding: 0.8em;
+  background: transparent;
+  border-style: solid;
+  border-color: #71836b;
+  border-radius: 3rem;
+  text-align: center;
+  text-decoration: none;
   color: #71836b;
   font-family: Roboto, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  display: inline-block;
   text-align: center;
-  background: transparent;
-  border-style: solid;
-  border-color:#71836b;
-  border-image: initial;
-  border-radius: 3rem;
   transition: background-color 0.25s ease 0s, color 0.25s ease 0s;
-  &:hover{
+  &:hover {
     background-color: #71836b;
     color: rgb(255, 255, 255);
   }
-  }`;
+`;
 
 export const LoginForm = () => {
   const classes = useStyles();
@@ -76,8 +69,10 @@ export const LoginForm = () => {
     <StyledFormsContainer>
       <form className={classes.root} noValidate autoComplete="off">
         <StyledLogin>
-          <h2>my account</h2>
-          <span>Log into your account below</span>
+          <StyledHeader>
+            <h2>my account</h2>
+            <span>Log into your account below</span>
+          </StyledHeader>
 
           <TextField
             id="outlined-search"
@@ -100,8 +95,10 @@ export const LoginForm = () => {
       </form>
       <form className={classes.root} noValidate autoComplete="off">
         <StyledLogin>
-          <h2>new user</h2>
-          <span>Create new account below</span>
+          <StyledHeader>
+            <h2>new user</h2>
+            <span>Create new account below</span>
+          </StyledHeader>
           <TextField
             id="outlined-search"
             label="Name"
