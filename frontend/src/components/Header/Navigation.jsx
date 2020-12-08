@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const ContactBar = styled.div`
   background-color: #71836b;
@@ -45,12 +47,13 @@ const StyledLink = styled(Link)`
 `;
 
 const ShoppingCartButton = styled.button`
+  outline: none;
   background: none;
   border: none;
   color: #71836b;
 `;
 
-export const Navigation = (props) => {
+const _Navigation = (props) => {
   return (
     <>
       <ContactBar />
@@ -60,8 +63,15 @@ export const Navigation = (props) => {
         <StyledLink to="/signin">Sign in</StyledLink>
         <ShoppingCartButton onClick={props.handleOpenCart}>
           <ShoppingCartIcon />
+          <span>
+            {props.items.reduce((sum, item) => sum + item.quantity, 0)}
+          </span>
         </ShoppingCartButton>
       </HeaderContainer>
     </>
   );
 };
+
+const mapStateToProps = (state) => ({ items: state.cart.items });
+
+export const Navigation = connect(mapStateToProps)(_Navigation);
