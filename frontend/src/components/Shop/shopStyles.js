@@ -6,8 +6,7 @@ export const Products = styled.section`
   justify-content: center;
 `;
 export const BtnAdd = styled.button`
-  background: none;
-  color: white;
+  outline: none;
   font-size: larger;
   padding: 20px 32px;
   border: none;
@@ -15,6 +14,7 @@ export const BtnAdd = styled.button`
   text-align: center;
   text-transform: uppercase;
   font-family: sans-serif;
+  letter-spacing: 2px;
   position: absolute;
   top: 60%;
   left: 50%;
@@ -43,6 +43,8 @@ export const ProductWrapper = styled.div`
   }
   &:hover ${BtnAdd} {
     opacity: 1;
+    background-color: #71836b;
+    color: rgb(255, 255, 255);
   }
   @media (max-width: 909px) {
     width: 40%;
