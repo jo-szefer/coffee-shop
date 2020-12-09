@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import RoomIcon from "@material-ui/icons/Room";
 
-import { sendEmail } from "../../middleware/sendEmail";
+import contact1JPG from "../../images/contact1.jpg";
+import contact2JPG from "../../images/contact2.jpg";
+import contact3JPG from "../../images/contact3.jpg";
+import contact4JPG from "../../images/contact4.jpg";
 
 const FormWrapper = styled.div`
-  height: 100vh;
+  height: 150vh;
 `;
 
 const Form = styled.form`
@@ -18,12 +22,15 @@ const Form = styled.form`
 const FormField = styled.div`
   display: flex;
   flex-direction: column;
+
   input {
     display: flex;
     flex: 1;
     width: 100%;
     max-width: 100%;
-    background: none;
+    box-shadow: -2px 4px 15px 5px #a0a0a0;
+    z-index: 1;
+    background-color: white;
     cursor: pointer;
     margin: 10px;
     padding: 0.8em;
@@ -31,6 +38,9 @@ const FormField = styled.div`
     border-style: solid;
   }
   textarea {
+    box-shadow: -2px 4px 15px 5px #a0a0a0;
+    z-index: 1;
+    background-color: white;
     display: flex;
     flex: 1;
     width: 100%;
@@ -40,7 +50,6 @@ const FormField = styled.div`
     margin: 10px;
     padding: 0.8em;
     border: #71836b;
-    background: none;
     border-style: solid;
   }
 `;
@@ -52,7 +61,9 @@ const StyledSubmitBtn = styled.button`
   text-decoration: none;
   padding: 1em;
   color: #71836b;
-  background: none;
+  box-shadow: -2px 4px 15px 5px #a0a0a0;
+  z-index: 1;
+  background-color: white;
   font-family: sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -68,46 +79,86 @@ const StyledSubmitBtn = styled.button`
   }
 `;
 
+const Image1 = styled.img`
+  width: 40%;
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  margin: 1vw;
+`;
+const Image2 = styled.img`
+  width: 40%;
+  position: absolute;
+  top: 120%;
+  right: 5%;
+  margin: 1vw;
+`;
+const Image3 = styled.img`
+  width: 40%;
+  margin: 1vw;
+`;
+const Colorful = styled.div`
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  top: 140%;
+  left: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1.5px;
+  }
+  span {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1.5px;
+    font-size: 2em;
+  }
+`;
+const Image4 = styled.img`
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  margin: 1vw;
+  right: 0;
+`;
+
 export const ContactForm = () => {
-  const [email, setEmail] = React.useState("");
-  const [message, setMessage] = React.useState("");
-
-  const onEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-  const onMessageChange = (e) => {
-    setMessage(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    sendEmail(email, message);
-  };
-
   return (
-    <FormWrapper>
-      <Form onSubmit={handleSubmit}>
-        <FormField>
-          <input
-            onChange={onEmailChange}
-            type="email"
-            name="email"
-            placeholder="email address"
-            required
-          />
-        </FormField>
-        <FormField>
-          <textarea
-            onChange={onMessageChange}
-            className="stretch"
-            name="message"
-            rows="5"
-            placeholder="message"
-            required
-          />
-        </FormField>
-        <StyledSubmitBtn type="submit">Send</StyledSubmitBtn>
-      </Form>
-    </FormWrapper>
+    <>
+      <FormWrapper>
+        <Form>
+          <FormField>
+            <input
+              type="email"
+              name="email"
+              placeholder="email address"
+              required
+            />
+          </FormField>
+          <FormField>
+            <textarea
+              className="stretch"
+              name="message"
+              rows="5"
+              placeholder="message"
+              required
+            />
+          </FormField>
+          <StyledSubmitBtn type="submit">Send</StyledSubmitBtn>
+        </Form>
+      </FormWrapper>
+      <Image1 src={contact1JPG} alt="" />
+      <Image2 src={contact2JPG} alt="" />
+      <Colorful>
+        <RoomIcon />
+        <h1>Visit us!</h1>
+        <span> Whatever Street 10, Sydney </span>
+      </Colorful>
+      <Image3 src={contact3JPG} alt="" />
+      <Image4 src={contact4JPG} alt="" />
+    </>
   );
 };
