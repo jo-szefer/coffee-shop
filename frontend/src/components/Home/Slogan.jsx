@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import video from "../../images/slogan_vid.mp4";
+
 const SloganContainer = styled.div`
   position: relative;
   height: 40vh;
@@ -36,16 +38,15 @@ const StyledSlogan = styled.div`
 `;
 
 export const Slogan = () => {
-  const videoSource = "./images/slogan_vid.mp4";
   return (
     <SloganContainer>
-      <StyledVideo 
+      <StyledVideo
         disablepictureinpicture
         controlslist="nodownload"
         autoPlay="autoPlay"
         muted
         loop="loop"
-        src={videoSource}
+        src={video}
         type="video/mp4"
       >
         Your browser does not support the video tag

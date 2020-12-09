@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import GoogleBtn from "./GoogleBtn";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +39,7 @@ const StyledHeader = styled.div`
 `;
 
 const StyledLoginBtn = styled.button`
+  outline: none;
   cursor: pointer;
   margin: 10px;
   padding: 0.8em;
@@ -89,9 +89,11 @@ export const LoginForm = () => {
             variant="outlined"
           />
         </StyledLogin>
-        <StyledLoginBtn>Sign in</StyledLoginBtn>
-
-        <GoogleBtn />
+        <StyledLoginBtn
+          onClick={() => alert("Ths feature will be added soon :)")}
+        >
+          Sign in
+        </StyledLoginBtn>
       </form>
       <form className={classes.root} noValidate autoComplete="off">
         <StyledLogin>
@@ -125,7 +127,11 @@ export const LoginForm = () => {
             variant="outlined"
           />
         </StyledLogin>
-        <StyledLoginBtn>Sign up</StyledLoginBtn>
+        <StyledLoginBtn
+          onClick={() => alert("This feature will be added soon :)")}
+        >
+          Sign up
+        </StyledLoginBtn>
       </form>
     </StyledFormsContainer>
   );
