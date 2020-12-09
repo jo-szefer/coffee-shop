@@ -35,29 +35,6 @@ const SlideTxt = styled.p`
     display: none;
   }
 `;
-const SliderButton = styled.button`
-  font-size: 1.3vw;
-  background: none;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 3%;
-  color: black;
-  display: block;
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  border: none;
-  background-image: linear-gradient(black, black);
-  background-size: 0 1px, auto;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  transition: all 0.5s ease-out;
-  &:hover {
-    background-size: 20% 1px, auto;
-  }
-`;
 
 export const Slider = () => {
   return (
@@ -68,7 +45,6 @@ export const Slider = () => {
           <SlideContent>
             <SlideTitle>{slide.title}</SlideTitle>
             <SlideTxt>{slide.content}</SlideTxt>
-            <SliderButton href="#">{slide.button}</SliderButton>
           </SlideContent>
         </>
       ))}
