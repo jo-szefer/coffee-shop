@@ -23,6 +23,7 @@ const HeaderContainer = styled.div`
 `;
 
 const StyledLink = styled(Link)`
+  outline: none;
   color: black;
   display: block;
   justify-content: space-between;
