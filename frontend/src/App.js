@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Header handleOpenCart={handleOpen} />
           <Cart open={open} handleClose={handleClose} />
           <Switch>
