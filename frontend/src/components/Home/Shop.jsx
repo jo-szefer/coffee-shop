@@ -12,6 +12,7 @@ const ShopCategoriesContainer = styled.div`
   }
 `;
 const ShopCategory = styled.div`
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;

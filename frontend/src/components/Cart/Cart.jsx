@@ -23,21 +23,22 @@ const CloseButton = styled.button`
 `;
 
 const ProductsInCart = styled.div`
-  min-width: 30vw;
+  width: 40vw;
   position: fixed;
   display: flex;
   flex-direction: column;
-  max-width: 20%;
   height: 100%;
   background: #fff;
   color: #2c3238;
-  max-height: 100%;
   overflow: auto;
   padding: 0 1.25rem;
-  max-width: 100%;
+  @media (max-width: 700px) {
+    width: 100vw;
+  }
 `;
 
 const ProductInCart = styled.div`
+  max-width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -116,8 +117,8 @@ const _Cart = (props) => {
         </CloseButton>
         <ProductsInCart>
           {props.items.length ? (
-            props.items.map((productInfo, i) => (
-              <>
+            <>
+              {props.items.map((productInfo, i) => (
                 <ProductInCart key={i}>
                   <StyledCartImage
                     src={`images/${productInfo.imgName}`}
@@ -154,16 +155,16 @@ const _Cart = (props) => {
                     </button>
                   </StyledCartButtons>
                 </ProductInCart>
-                <CartSummary>
-                  Total:{" "}
-                  {props.items.reduce(
-                    (sum, product) => sum + product.price * product.quantity,
-                    0
-                  )}{" "}
-                  $
-                </CartSummary>
-              </>
-            ))
+              ))}
+              <CartSummary>
+                Total:{" "}
+                {props.items.reduce(
+                  (sum, product) => sum + product.price * product.quantity,
+                  0
+                )}{" "}
+                $
+              </CartSummary>
+            </>
           ) : (
             <EmptyCart>Your cart is empty, add something!!!</EmptyCart>
           )}

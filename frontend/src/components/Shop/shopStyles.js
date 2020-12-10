@@ -7,7 +7,6 @@ export const Products = styled.section`
 `;
 export const BtnAdd = styled.button`
   outline: none;
-  font-size: larger;
   padding: 20px 32px;
   border: none;
   cursor: pointer;
@@ -21,6 +20,11 @@ export const BtnAdd = styled.button`
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   opacity: 0;
+  @media (max-width: 600px) {
+    width: 70%;
+    letter-spacing: none;
+    padding: 10px;
+  }
 `;
 export const ProductWrapper = styled.div`
   position: relative;
@@ -42,6 +46,7 @@ export const ProductWrapper = styled.div`
     background-color: rgba(90, 81, 81, 0.486);
   }
   &:hover ${BtnAdd} {
+    outline: none;
     opacity: 1;
     background-color: #71836b;
     color: rgb(255, 255, 255);

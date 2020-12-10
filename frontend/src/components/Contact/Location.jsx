@@ -60,6 +60,7 @@ const Colorful = styled.div`
   }
   h2 {
     font-family: "Playfair Display", serif;
+    text-transform: capitalize;
     font-size: 1.25rem;
     font-weight: 500;
     margin-top: 15px;

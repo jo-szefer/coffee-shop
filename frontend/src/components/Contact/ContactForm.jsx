@@ -3,13 +3,19 @@ import styled from "styled-components";
 
 import { Location } from "./Location";
 
+const Background = styled.div`
+  background-color: #71836b;
+`;
+
 const Title = styled.div`
+  padding-top: 1%;
   text-align: center;
   font-family: "Playfair Display", sans-serif;
   letter-spacing: 1px;
   font-size: 1.5em;
   margin-top: 30px;
   opacity: 0.9;
+  color: white;
 `;
 
 const Form = styled.form`
@@ -29,7 +35,7 @@ const FormField = styled.div`
     flex: 1;
     width: 100%;
     max-width: 100%;
-    box-shadow: -2px 4px 15px 5px #a0a0a0;
+    // box-shadow: -2px 4px 15px 5px #a0a0a0;
     z-index: 1;
     background-color: white;
     cursor: pointer;
@@ -40,7 +46,7 @@ const FormField = styled.div`
   }
   textarea {
     outline: none;
-    box-shadow: -2px 4px 15px 5px #a0a0a0;
+    // box-shadow: -2px 4px 15px 5px #a0a0a0;
     z-index: 1;
     background-color: white;
     display: flex;
@@ -64,7 +70,7 @@ const StyledSubmitBtn = styled.button`
   text-decoration: none;
   padding: 1em;
   color: #71836b;
-  box-shadow: -2px 4px 15px 5px #a0a0a0;
+  // box-shadow: -2px 4px 15px 5px #a0a0a0;
   z-index: 1;
   background-color: white;
   font-family: sans-serif;
@@ -85,34 +91,36 @@ const StyledSubmitBtn = styled.button`
 export const ContactForm = () => {
   return (
     <>
-      <Title>let's talk</Title>
-      <Form>
-        <FormField>
-          <input
-            type="email"
-            name="email"
-            placeholder="email address"
-            required
-          />
-        </FormField>
-        <FormField>
-          <textarea
-            className="stretch"
-            name="message"
-            rows="5"
-            placeholder="message"
-            required
-          />
-        </FormField>
-        <StyledSubmitBtn
-          type="submit"
-          onClick={() => {
-            alert("This feature will be added soon");
-          }}
-        >
-          Send
-        </StyledSubmitBtn>
-      </Form>
+      <Background>
+        <Title>let's talk</Title>
+        <Form>
+          <FormField>
+            <input
+              type="email"
+              name="email"
+              placeholder="email address"
+              required
+            />
+          </FormField>
+          <FormField>
+            <textarea
+              className="stretch"
+              name="message"
+              rows="5"
+              placeholder="message"
+              required
+            />
+          </FormField>
+          <StyledSubmitBtn
+            type="submit"
+            onClick={() => {
+              alert("This feature will be added soon");
+            }}
+          >
+            Send
+          </StyledSubmitBtn>
+        </Form>
+      </Background>
       <Location />
     </>
   );
